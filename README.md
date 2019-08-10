@@ -25,9 +25,9 @@ Usage of ipsecdump:
 
 ```
 # ipsecdump -i eth0
-20:15:16.661512 IP 68.183.54.146 > 213.156.229.222: ICMP echo request, id 3567, seq 1, length 31
-20:15:21.661062 IP 68.183.54.146 > 213.156.229.222: ICMP echo request, id 3567, seq 1, length 31
-20:15:26.661180 IP 68.183.54.146 > 213.156.229.222: ICMP echo request, id 3567, seq 1, length 31
-20:15:31.661353 IP 68.183.54.146 > 213.156.229.222: ICMP echo request, id 3567, seq 1, length 31
+20:15:16.661512 IP 198.51.100.146 > 203.0.113.222: ICMP echo request, id 3567, seq 1, length 31
+20:15:21.661062 IP 198.51.100.146 > 203.0.113.222: ICMP echo request, id 3567, seq 1, length 31
+20:15:26.661180 IP 198.51.100.146 > 203.0.113.222: ICMP echo request, id 3567, seq 1, length 31
+20:15:31.661353 IP 198.51.100.146 > 203.0.113.222: ICMP echo request, id 3567, seq 1, length 31
 ...
 ```
