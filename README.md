@@ -1,4 +1,6 @@
 # ipsecdump
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fx-way%2Fipsecdump.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fx-way%2Fipsecdump?ref=badge_shield)
+
 
 Dump incoming IPSec packets after they have been decrypted by the kernel
 
@@ -31,3 +33,7 @@ Usage of ipsecdump:
 20:15:31.661353 IP 198.51.100.146 > 203.0.113.222: ICMP echo request, id 3567, seq 1, length 31
 ...
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fx-way%2Fipsecdump.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fx-way%2Fipsecdump?ref=badge_large)
