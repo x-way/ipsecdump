@@ -10,6 +10,8 @@ import (
 	"os/exec"
 	"time"
 
+	"golang.org/x/sys/unix"
+
 	"github.com/x-way/pktdump"
 
 	nflog "github.com/florianl/go-nflog"
@@ -52,10 +54,10 @@ func main() {
 	fn := func(attrs nflog.Attribute) int {
 		if attrs.Payload != nil && attrs.HwProtocol != nil && attrs.Prefix != nil && *attrs.Prefix == prefix {
 			switch *attrs.HwProtocol {
-			case 0x0008:
+			case unix.ETH_P_IP:
 				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
 				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv4, gopacket.Default)))
-			case 0xdd86:
+			case unix.ETH_P_IPV6:
 				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
 				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv6, gopacket.Default)))
 			}
