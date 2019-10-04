@@ -9,6 +9,7 @@ github.com/google/gopacket v1.1.17/go.mod h1:UdDNZ1OO62aGYVnPhxT1U6aI7ukYtA/kB8v
 github.com/jsimonetti/rtnetlink v0.0.0-20190606172950-9527aa82566a/go.mod h1:Oz+70psSo5OFh8DBl0Zv2ACw7Esh6pPUphlvZG9x7uw=
 github.com/jsimonetti/rtnetlink v0.0.0-20190830100107-3784a6c7c552 h1:Ve/e6edHdAHn+8/24Xco7IhQCv3u5Dab2qZNvR9e5/U=
 github.com/jsimonetti/rtnetlink v0.0.0-20190830100107-3784a6c7c552/go.mod h1:Oz+70psSo5OFh8DBl0Zv2ACw7Esh6pPUphlvZG9x7uw=
+github.com/jsimonetti/rtnetlink v0.0.0-20191004095126-749bc8117fef/go.mod h1:Oz+70psSo5OFh8DBl0Zv2ACw7Esh6pPUphlvZG9x7uw=
 github.com/mdlayher/netlink v0.0.0-20190409211403-11939a169225/go.mod h1:eQB3mZE4aiYnlUsyGGCOpPETfdQq4Jhsgf1fk3cwQaA=
 github.com/mdlayher/netlink v0.0.0-20190828143259-340058475d09/go.mod h1:KxeJAFOFLG6AjpyDkQ/iIhxygIUKD+vcwqcnu43w/+M=
 github.com/mdlayher/netlink v0.0.0-20190906145618-4e5dd4017dae h1:5h8zGdp7iNxxDw5JLGXs7SLtzmjaXaXwLcxmCwCYfPI=
