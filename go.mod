@@ -10,5 +10,5 @@ require (
 	github.com/mdlayher/netlink v0.0.0-20191007183550-cbbb9b2e2bbb // indirect
 	github.com/x-way/pktdump v0.0.1
 	golang.org/x/net v0.0.0-20191007182048-72f939374954 // indirect
-	golang.org/x/sys v0.0.0-20191008105621-543471e840be
+	golang.org/x/sys v0.0.0-20191009170203-06d7bd2c5f4f
 )
