@@ -2,6 +2,31 @@
   "extends": [
     "config:base"
   ],
-  "assignees": ["x-way"],
-  "reviewers": ["x-way"]
+  "assignees": [
+    "x-way"
+  ],
+  "reviewers": [
+    "x-way"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "postUpdateOptions": [
+    "gomodTidy"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "digest",
+        "patch"
+      ],
+      "packagePatterns": [
+        "^golang.org/x/",
+        "^github.com/google/",
+        "^github.com/mdlayher",
+        "^github.com/jsimonetti"
+      ],
+      "automerge": true
+    }
+  ]
 }
