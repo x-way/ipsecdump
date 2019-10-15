@@ -5,9 +5,6 @@
   "assignees": [
     "x-way"
   ],
-  "reviewers": [
-    "x-way"
-  ],
   "labels": [
     "renovate"
   ],
@@ -21,13 +18,9 @@
         "patch"
       ],
       "packagePatterns": [
-        "^golang.org/x/",
-        "^github.com/google/",
-        "^github.com/mdlayher",
-        "^github.com/jsimonetti"
+        "^golang.org/x/"
       ],
-      "automerge": true,
-      "reviewers": []
+      "automerge": true
     }
   ]
 }
