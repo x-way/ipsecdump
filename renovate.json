@@ -5,6 +5,9 @@
   "assignees": [
     "x-way"
   ],
+  "reviewers": [
+    "x-way"
+  ],
   "labels": [
     "renovate"
   ],
@@ -20,7 +23,7 @@
       "packagePatterns": [
         "^golang.org/x/"
       ],
-      "automerge": true
+      "schedule": ["after 6pm"]
     }
   ]
 }
