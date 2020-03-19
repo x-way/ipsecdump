@@ -53,6 +53,7 @@ jobs:
       - run:
           name: Codacy coverage upload
           command: |
+                    go get github.com/schrej/godacov
                     godacov -t $CODACY_PROJECT_TOKEN -r coverage.txt -c $CIRCLE_SHA1
       - store_test_results:
           path: /tmp/test-reports
