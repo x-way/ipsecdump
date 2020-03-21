@@ -20,7 +20,6 @@ import (
 )
 
 func main() {
-
 	var (
 		dumpDuration      = flag.Duration("t", 10*time.Second, "how long to run the NFLOG dumping")
 		iface             = flag.String("i", "any", "incoming interface to listen on (default: any)")
