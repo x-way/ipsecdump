@@ -88,12 +88,23 @@ func main() {
 }
 
 func validateFlags(mode, tunnelSource, tunnelDestination string) error {
-	if mode != "tunnel" && mode != "transport" {
-		return fmt.Errorf("mode must be 'tunnel' or 'transport'")
+	if mode == "tunnel" {
+		return validateTunnelFlags(tunnelSource, tunnelDestination)
 	}
-	if mode == "transport" && ((tunnelSource != "") || (tunnelDestination != "")) {
+	if mode == "transport" {
+		return validateTransportFlags(tunnelSource, tunnelDestination)
+	}
+	return fmt.Errorf("mode must be 'tunnel' or 'transport'")
+}
+
+func validateTransportFlags(tunnelSource, tunnelDestination string) error {
+	if (tunnelSource != "") || (tunnelDestination != "") {
 		return fmt.Errorf("transport mode does not support tunnel source/destination IPs")
 	}
+	return nil
+}
+
+func validateTunnelFlags(tunnelSource, tunnelDestination string) error {
 	if tunnelSource != "" && net.ParseIP(tunnelSource) == nil {
 		return fmt.Errorf("tunnel source IP must be a valid IP address")
 	}
