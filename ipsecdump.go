@@ -50,25 +50,10 @@ func main() {
 	}
 	defer nfl.Close()
 
-	fn := func(attrs nflog.Attribute) int {
-		if attrs.Payload != nil && attrs.HwProtocol != nil && attrs.Prefix != nil && *attrs.Prefix == prefix {
-			switch *attrs.HwProtocol {
-			case unix.ETH_P_IP:
-				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
-				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv4, gopacket.Default)))
-			case unix.ETH_P_IPV6:
-				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
-				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv6, gopacket.Default)))
-			}
-		}
-
-		return 0
-	}
-
 	ctx, cancel := context.WithTimeout(context.Background(), *dumpDuration)
 	defer cancel()
 
-	if err := nfl.Register(ctx, fn); err != nil {
+	if err := nfl.Register(ctx, buildCallBackFn(prefix)); err != nil {
 		log.Fatal(fmt.Sprintf("Could not register nflog callback: %v\n", err))
 	}
 
@@ -85,6 +70,23 @@ func main() {
 	}
 
 	<-ctx.Done()
+}
+
+func buildCallBackFn(prefix string) func(nflog.Attribute) int {
+	return func(attrs nflog.Attribute) int {
+		if attrs.Payload != nil && attrs.HwProtocol != nil && attrs.Prefix != nil && *attrs.Prefix == prefix {
+			switch *attrs.HwProtocol {
+			case unix.ETH_P_IP:
+				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
+				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv4, gopacket.Default)))
+			case unix.ETH_P_IPV6:
+				fmt.Printf("%s ", time.Now().Format("15:04:05.000000"))
+				fmt.Println(pktdump.Format(gopacket.NewPacket(*attrs.Payload, layers.LayerTypeIPv6, gopacket.Default)))
+			}
+		}
+
+		return 0
+	}
 }
 
 func validateFlags(mode, tunnelSource, tunnelDestination string) error {
