@@ -9,5 +9,5 @@ require (
 	github.com/jsimonetti/rtnetlink v0.0.0-20191009172356-51db9f120147 // indirect
 	github.com/mdlayher/netlink v0.0.0-20191009155606-de872b0d824b // indirect
 	github.com/x-way/pktdump v0.0.2
-	golang.org/x/sys v0.0.0-20200622214017-ed371f2e16b4
+	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae
 )
