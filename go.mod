@@ -3,7 +3,7 @@ module github.com/x-way/ipsecdump
 go 1.12
 
 require (
-	github.com/florianl/go-nflog v0.0.0-20191002101342-fa363b2892a5
+	github.com/florianl/go-nflog/v2/v2 v2.0.0
 	github.com/google/go-cmp v0.5.2
 	github.com/google/gopacket v1.1.18
 	github.com/jsimonetti/rtnetlink v0.0.0-20191009172356-51db9f120147 // indirect
