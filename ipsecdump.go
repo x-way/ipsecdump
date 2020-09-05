@@ -14,7 +14,7 @@ import (
 
 	"github.com/x-way/pktdump"
 
-	nflog "github.com/florianl/go-nflog"
+	nflog "github.com/florianl/go-nflog/v2"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 )
@@ -40,7 +40,7 @@ func main() {
 
 	config := nflog.Config{
 		Group:       uint16(*nflogGroup),
-		Copymode:    nflog.NfUlnlCopyPacket,
+		Copymode:    nflog.CopyPacket,
 		ReadTimeout: time.Second,
 	}
 
