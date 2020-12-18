@@ -1,6 +1,6 @@
 module github.com/x-way/ipsecdump
 
-go 1.12
+go 1.14
 
 require (
 	github.com/florianl/go-nflog/v2 v2.0.0
