@@ -12,6 +12,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
+	"github.com/mdlayher/netlink"
 	"github.com/x-way/pktdump"
 
 	nflog "github.com/florianl/go-nflog/v2"
@@ -53,7 +54,17 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), *dumpDuration)
 	defer cancel()
 
-	if err := nfl.Register(ctx, buildCallBackFn(prefix)); err != nil {
+	errorFunc := func(err error) int {
+		if opError, ok := err.(*netlink.OpError); ok {
+			if opError.Timeout() || opError.Temporary() {
+				return 0
+			}
+		}
+		log.Fatal(fmt.Sprintf("Could not receive message: %v\n", err))
+		return 1
+	}
+
+	if err := nfl.RegisterWithErrorFunc(ctx, buildCallBackFn(prefix), errorFunc); err != nil {
 		log.Fatal(fmt.Sprintf("Could not register nflog callback: %v\n", err))
 	}
 
