@@ -47,7 +47,7 @@ func main() {
 
 	nfl, err := nflog.Open(&config)
 	if err != nil {
-		log.Fatal(fmt.Sprintf("Could not open nflog socket: %v\n", err))
+		log.Fatalf("Could not open nflog socket: %v\n", err)
 	}
 	defer nfl.Close()
 
@@ -60,12 +60,12 @@ func main() {
 				return 0
 			}
 		}
-		log.Fatal(fmt.Sprintf("Could not receive message: %v\n", err))
+		log.Fatalf("Could not receive message: %v\n", err)
 		return 1
 	}
 
 	if err := nfl.RegisterWithErrorFunc(ctx, buildCallBackFn(prefix), errorFunc); err != nil {
-		log.Fatal(fmt.Sprintf("Could not register nflog callback: %v\n", err))
+		log.Fatalf("Could not register nflog callback: %v\n", err)
 	}
 
 	addCmd := exec.Command("iptables", buildIptablesParams(false, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...)
