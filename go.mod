@@ -8,7 +8,7 @@ require (
 	github.com/google/gopacket v1.1.19
 	github.com/mdlayher/netlink v1.6.2
 	github.com/x-way/pktdump v0.0.3
-	golang.org/x/sys v0.0.0-20220927170352-d9d178bc13c6
+	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec
 )
 
 require (
