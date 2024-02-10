@@ -34,7 +34,8 @@
       ],
       "updateTypes": [
         "digest",
-        "patch"
+        "patch",
+        "minor"
       ],
       "reviewers": [],
       "assignees": [],
