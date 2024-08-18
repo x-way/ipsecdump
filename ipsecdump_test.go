@@ -104,7 +104,7 @@ func TestBuildIptablesParams(t *testing.T) {
 			got := buildIptablesParams(tt.del, tt.mode, tt.iface, tt.tunnelSource, tt.tunnelDestination, tt.nflogGroup, tt.prefix)
 			diff := cmp.Diff(tt.expected, got)
 			if diff != "" {
-				t.Errorf(diff)
+				t.Error(diff)
 			}
 		})
 	}
