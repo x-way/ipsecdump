@@ -2,7 +2,7 @@ module github.com/x-way/ipsecdump
 
 go 1.23.0
 
-toolchain go1.24.0
+toolchain go1.24.1
 
 require (
 	github.com/florianl/go-nflog/v2 v2.1.0
