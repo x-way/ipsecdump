@@ -13,6 +13,6 @@ require (
 
 require (
 	github.com/mdlayher/socket v0.5.1 // indirect
-	golang.org/x/net v0.46.0 // indirect
+	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/sync v0.18.0 // indirect
 )
