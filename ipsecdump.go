@@ -40,9 +40,8 @@ func main() {
 	prefix := fmt.Sprintf("ipsecdump:%d", os.Getpid())
 
 	config := nflog.Config{
-		Group:       uint16(*nflogGroup),
-		Copymode:    nflog.CopyPacket,
-		ReadTimeout: time.Second,
+		Group:    uint16(*nflogGroup),
+		Copymode: nflog.CopyPacket,
 	}
 
 	nfl, err := nflog.Open(&config)
