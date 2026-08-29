@@ -72,7 +72,7 @@ func main() {
 	}
 
 	addCmd := exec.Command("iptables", buildIptablesParams(false, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...) // #nosec G204 -- args built from operator-supplied CLI flags, binary name is a fixed literal, not attacker-controlled
-	delCmd := exec.Command("iptables", buildIptablesParams(true, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...) // #nosec G204 -- args built from operator-supplied CLI flags, binary name is a fixed literal, not attacker-controlled
+	delCmd := exec.Command("iptables", buildIptablesParams(true, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...)  // #nosec G204 -- args built from operator-supplied CLI flags, binary name is a fixed literal, not attacker-controlled
 
 	defer func() {
 		if err := delCmd.Run(); err != nil {
