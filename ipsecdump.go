@@ -37,10 +37,14 @@ func main() {
 		return
 	}
 
+	if *nflogGroup < 0 || *nflogGroup > 65535 {
+		log.Fatalf("Invalid NFLOG group %d: must be between 0 and 65535", *nflogGroup)
+	}
+
 	prefix := fmt.Sprintf("ipsecdump:%d", os.Getpid())
 
 	config := nflog.Config{
-		Group:    uint16(*nflogGroup),
+		Group:    uint16(*nflogGroup), // #nosec G115 -- range-checked (0-65535) above
 		Copymode: nflog.CopyPacket,
 	}
 
@@ -48,7 +52,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Could not open nflog socket: %v\n", err)
 	}
-	defer nfl.Close()
+	defer func() { _ = nfl.Close() }()
 
 	ctx, cancel := context.WithTimeout(context.Background(), *dumpDuration)
 	defer cancel()
@@ -67,8 +71,8 @@ func main() {
 		log.Fatalf("Could not register nflog callback: %v\n", err)
 	}
 
-	addCmd := exec.Command("iptables", buildIptablesParams(false, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...)
-	delCmd := exec.Command("iptables", buildIptablesParams(true, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...)
+	addCmd := exec.Command("iptables", buildIptablesParams(false, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...) // #nosec G204 -- args built from operator-supplied CLI flags, binary name is a fixed literal, not attacker-controlled
+	delCmd := exec.Command("iptables", buildIptablesParams(true, *mode, *iface, *tunnelSource, *tunnelDestination, *nflogGroup, prefix)...) // #nosec G204 -- args built from operator-supplied CLI flags, binary name is a fixed literal, not attacker-controlled
 
 	defer func() {
 		if err := delCmd.Run(); err != nil {
