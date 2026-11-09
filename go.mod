@@ -8,11 +8,11 @@ require (
 	github.com/google/gopacket v1.1.19
 	github.com/mdlayher/netlink v1.11.2
 	github.com/x-way/pktdump v0.0.7
-	golang.org/x/sys v0.49.0
+	golang.org/x/sys v0.50.0
 )
 
 require (
 	github.com/mdlayher/socket v0.8.0 // indirect
 	golang.org/x/net v0.62.0 // indirect
-	golang.org/x/sync v0.24.0 // indirect
+	golang.org/x/sync v0.25.0 // indirect
 )
